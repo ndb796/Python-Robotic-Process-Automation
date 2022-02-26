@@ -2,7 +2,7 @@
 
 #### 개발 환경이란?
 
-* 코딩, 디버깅, 배포 등 프로그램을 개발하는 일련의 과정을 하나의 프로그램 안에서 수행할 수 있도록 해준 것을 의미합니다.
+* 코딩, 디버깅, 배포 등 <b>프로그램을 개발하는 일련의 과정을 하나의 프로그램 안에서 수행</b>할 수 있도록 해준 것을 의미합니다.
 
 #### 1) Visual Studio Code 설치
 
@@ -21,7 +21,7 @@
 * Python 확장 프로그램(Extensions)을 사용하면, 보다 풍부한 기능을 이용할 수 있습니다.
 * Visual Studio Code를 이용하여 코드를 작성해 봅시다.
   1. Visual Studio Code의 터미널(terminal)을 이용하여 python을 사용해 봅시다.
-  2. Visual Studio Code에서 hello_world.py 파일을 생성하여 실행해 봅시다.
+  2. Visual Studio Code에서 [hello_world.py](./hello_world.py) 파일을 생성하여 실행해 봅시다.
 
 #### 4) Google Colab
 
