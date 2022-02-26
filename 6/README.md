@@ -8,6 +8,11 @@
 #### 1) openpyxl 라이브러리 설치
 
 * 파이썬에서 엑셀 업무를 도와주기 위한 라이브러리로 openpyxl이 있습니다.
+
+<pre>
+pip install openpyxl
+</pre>
+
 * openpyxl 웹 사이트: https://openpyxl.readthedocs.io/en/stable/
 * 일반적으로 워크북(workbook)은 전체 엑셀 파일 자체를 의미합니다.
 * 하나의 워크북에는 여러 개의 워크시트(worksheet)가 존재할 수 있습니다.
