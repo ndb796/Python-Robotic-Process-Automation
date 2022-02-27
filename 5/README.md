@@ -30,7 +30,13 @@ image_location = pyautogui.locateOnScreen("login.png")
 print(image_location)
 </pre>
 * locateOnScreen() 메서드의 confidence 속성의 값을 활용할 수 있습니다.
-    * 일치율이 50% 이상인 이미지를 찾는다면, confidence 값으로 0.5를 기입합니다.
+    * OpenCV를 설치할 필요가 있습니다.
+
+<pre>
+pip install opencv-python
+</pre>
+
+* 일치율이 50% 이상인 이미지를 찾는다면, confidence 값으로 0.5를 기입합니다.
 <pre>
 import pyautogui
 
