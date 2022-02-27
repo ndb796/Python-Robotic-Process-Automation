@@ -39,6 +39,7 @@ workbook.save("output.xlsx")
 * 실습을 위해 준비된 두 개의 메모장 파일을 확인합니다.
     * students.txt
     * students2.txt
+    * students3.txt
 * 파이썬을 이용해 파일에서 데이터를 읽어 오기 위해 파일 객체를 생성합니다.
     * open(): 파일 객체를 생성하는 함수
     * read(): 파일의 전체 내용을 문자열 형태로 읽어오는 함수
