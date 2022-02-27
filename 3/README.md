@@ -24,6 +24,7 @@ print(x / y)
 ```
 x = int(input())
 y = int(input())
+
 if y == 0:
     print('0으로 나눌 수 없습니다.')
 else:
@@ -64,6 +65,7 @@ for x in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
 result = 0
 for i in range(1, 51): # 1부터 50까지 방문
     result += i
+
 print(result)
 ```
 
@@ -74,6 +76,7 @@ result = 0
 for i in range(1, 51):
     if i % 10 == 0:
         result += i
+
 print(result)
 ``` 
 
@@ -160,7 +163,6 @@ def find_certain_value(arr, value):
         if x == value:
             return i
     return -1 # 찾지 못한 경우 -1을 반환
-
 
 print(find_certain_value([3, 5, 7, 9], 2))
 print(find_certain_value([3, 5, 7, 9], 7))
