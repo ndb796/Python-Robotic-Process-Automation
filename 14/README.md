@@ -75,6 +75,49 @@ for image in images:
         break
 </pre>
 
+* <b>코드 업데이트</b>
+
+<pre>
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+import time
+from urllib.request import urlretrieve
+import os
+
+path = "./chromedriver.exe"
+
+service = Service(executable_path=path)
+browser = webdriver.Chrome(service=service)
+
+search = "무료 풍경 사진"
+url = "https://www.google.com/search?q=" + search + "&tbm=isch&hl=ko"
+
+# 특정 웹 사이트에 접속하기
+browser.get(url)
+
+time.sleep(3)
+
+# 이미지 태그 찾기
+images = browser.find_elements("tag name", "img")
+
+# 이미지를 저장할 폴더 생성
+directory = "./images/"
+if not os.path.exists(directory):
+    os.mkdir(directory)
+
+# 이미지를 하나씩 확인하며
+limit = 50
+cnt = 0
+for image in images:
+    image_source = image.get_attribute("src") # 이미지 URL
+    if image_source != None:
+        target = directory + str(cnt) + ".png"
+        urlretrieve(image_source, target) # 이미지 다운로드
+    cnt += 1
+    if cnt == limit: # 원하는 만큼 이미지를 다운로드한 경우
+        break
+</pre>
+
 #### 2) 구글(Google)에서 이미지 가공하기
 
 * 원하는 이미지만 수집한 뒤에 이미지의 크기를 적절하게 바꿀 수 있습니다.
