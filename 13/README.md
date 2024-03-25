@@ -74,6 +74,35 @@ id[0].send_keys("pyautogui")
 password[0].send_keys("pyautogui")
 </pre>
 
+* <b>코드 업데이트</b>
+
+<pre>
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+import time
+
+path = "./chromedriver.exe"
+
+service = Service(executable_path=path)
+browser = webdriver.Chrome(service=service)
+
+# 특정 웹 사이트에 접속하기
+browser.get("http://www.dowellcomputer.com/member/memberLoginForm.jsp")
+
+# 현재 웹 페이지의 정보 출력하기
+print(browser.title)
+
+# 아이디와 비밀번호 입력 창에 접근
+id = browser.find_element("name", "memberID")
+password = browser.find_element("name", "memberPassword")
+
+# 각 요소(element)에 원하는 문자열 입력
+id.send_keys("pyautogui")
+password.send_keys("pyautogui")
+
+time.sleep(120)
+</pre>
+
 * 일반적으로 버튼을 클릭할 때는 셀레니움(Selenium)에서 XPath를 사용합니다.
      * 개발자 도구(F12)를 연 뒤에, 우리가 원하는 버튼의 HTML 코드의 XPath를 복사합니다.
 
@@ -100,6 +129,39 @@ password[0].send_keys("pyautogui")
 # XPath로 버튼 요소(element)에 접근
 button = browser.find_element_by_xpath('//*[@id="blackBox"]/input[1]')
 button.click()
+</pre>
+
+* <b>코드 업데이트</b>
+
+<pre>
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+import time
+
+path = "./chromedriver.exe"
+
+service = Service(executable_path=path)
+browser = webdriver.Chrome(service=service)
+
+# 특정 웹 사이트에 접속하기
+browser.get("http://www.dowellcomputer.com/member/memberLoginForm.jsp")
+
+# 현재 웹 페이지의 정보 출력하기
+print(browser.title)
+
+# 아이디와 비밀번호 입력 창에 접근
+id = browser.find_element("name", "memberID")
+password = browser.find_element("name", "memberPassword")
+
+# 각 요소(element)에 원하는 문자열 입력
+id.send_keys("pyautogui")
+password.send_keys("pyautogui")
+
+# XPath로 버튼 요소(element)에 접근
+button = browser.find_element('xpath', '//*[@id="blackBox"]/input[1]')
+button.click()
+
+time.sleep(50)
 </pre>
 
 #### 5) 셀레니움(Selenium)을 활용한 자동 크롤링
@@ -152,4 +214,58 @@ for row in range(2, len(rows)):
     f.write(text)
 
 f.close()
+</pre>
+
+* <b>코드 업데이트</b>
+
+<pre>
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+import time
+
+path = "./chromedriver.exe"
+
+service = Service(executable_path=path)
+browser = webdriver.Chrome(service=service)
+
+# 특정 웹 사이트에 접속하기
+browser.get("http://www.dowellcomputer.com/member/memberLoginForm.jsp")
+
+# 현재 웹 페이지의 정보 출력하기
+print(browser.title)
+
+# 아이디와 비밀번호 입력 창에 접근
+id = browser.find_element("name", "memberID")
+password = browser.find_element("name", "memberPassword")
+
+# 각 요소(element)에 원하는 문자열 입력
+id.send_keys("pyautogui")
+password.send_keys("pyautogui")
+
+# XPath로 버튼 요소(element)에 접근
+button = browser.find_element('xpath', '//*[@id="blackBox"]/input[1]')
+button.click()
+
+# 특정 웹 사이트에 접속하기
+browser.get("http://www.dowellcomputer.com/study/study.jsp")
+# 게시물 제목에 접근
+box = browser.find_element("class name", "studyViewBox")
+rows = box.find_elements("tag name", "tr")
+
+# 파일 객체를 쓰기 모드로 열기
+f = open("result.txt", "w", encoding="utf8")
+
+# 처음 두 개의 줄(row)은 제외하고 하나씩 확인
+for row in range(2, len(rows)):
+    cells = rows[row].find_elements("class name", "tail")
+    name = cells[0].text
+    title = cells[1].text
+    date = cells[2].text
+    # 이름, 제목, 날짜 데이터를 파일에 저장
+    text = f"선생님: {name}\n제목: {title}\n날짜: {date}\n"
+    f.write(text)
+
+f.close()
+
+time.sleep(50)
 </pre>
